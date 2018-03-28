@@ -3,12 +3,18 @@
 
 """The News Insert Implementation."""
 
-import pymongo
 from pymongo import MongoClient
-
+from pymongo.errors import ConnectionFailure
 
 def insert_news(date, title, html, trhtml, text, trtext):
     client = MongoClient()
+    try:
+        # The ismaster command is cheap and does not require auth.
+        client.admin.command('ismaster')
+    except ConnectionFailure:
+        print("Server not available")
+        return
+
     db = client.news
     coll = db[date]
 
