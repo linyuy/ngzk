@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
 def insert_news(date, title, html, trhtml, text, trtext):
-    client = MongoClient()
+    client = MongoClient(connectTimeoutMS=2000, serverSelectionTimeoutMS=2000)
     try:
         # The ismaster command is cheap and does not require auth.
         client.admin.command('ismaster')
