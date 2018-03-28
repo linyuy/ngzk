@@ -22,7 +22,7 @@ pip3 install html2text pymongo beautifulsoup4 selenium requests lxml
     
     Service at localhost:27017 and non authorization.
 
- - [PhantomJS](http://phantomjs.org): ranslate
+ - [PhantomJS](http://phantomjs.org): Translate
     
     Should find in path.
 
